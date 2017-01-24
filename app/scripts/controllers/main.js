@@ -8,10 +8,17 @@
  * Controller of the mywebsiteApp
  */
 angular.module('mywebsiteApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', ['$scope', '$location', function ($scope, $location) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma',
+      'ngMaterial'
     ];
-  });
+
+    $scope.activePage = 'home'; 
+	$scope.setActivePage = function(page) {
+		$scope.activePage = page;
+	}
+
+  }]);

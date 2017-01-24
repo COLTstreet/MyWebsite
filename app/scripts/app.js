@@ -17,12 +17,22 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngMaterial'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/home.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when('/home', {
+        templateUrl: 'views/home.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
