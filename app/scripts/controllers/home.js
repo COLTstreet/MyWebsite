@@ -2,16 +2,13 @@
 
 /**
  * @ngdoc function
- * @name mywebsiteApp.controller:AboutCtrl
+ * @name mywebsiteApp.controller:HomeCtrl
  * @description
- * # AboutCtrl
+ * # HomeCtrl
  * Controller of the mywebsiteApp
  */
 angular.module('mywebsiteApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('HomeCtrl', function () {
+  	var clientHeight = document.getElementById('container').clientHeight;
+  	document.getElementById('frontPage').style.height = clientHeight + "px";
   });
