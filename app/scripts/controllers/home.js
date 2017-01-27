@@ -8,7 +8,7 @@
  * Controller of the mywebsiteApp
  */
 angular.module('mywebsiteApp')
-  .controller('HomeCtrl', function () {
-  	var clientHeight = document.getElementById('container').clientHeight;
-  	document.getElementById('frontPage').style.height = clientHeight + "px";
-  });
+	.controller('HomeCtrl', ['$scope', '$window', function ($scope, $window) {
+
+		
+ }]);

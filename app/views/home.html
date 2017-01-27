@@ -1,29 +1,19 @@
-<!-- <div ng-include="'views/main.html'" ng-controller="MainCtrl" onload="setActivePage('home')"></div> -->
-<div class="homeContainer" ng-controller="HomeCtrl">
-	<div id="" layout="row" layout-align="end stretch">
-		<div ng-controller="MainCtrl">
-			<md-fab-speed-dial md-direction="down" class="md-scale" ng-cloak>
-		    	<md-fab-trigger>
-		      		<md-button aria-label="Menu" class="md-fab md-accent">
-		        		<i class="fa fa-navicon fa-lg" aria-hidden="true"></i>
-						<md-tooltip>Menu</md-tooltip>
-		      		</md-button>
-		    	</md-fab-trigger>
+<div ng-include="'views/main.html'" ng-controller="MainCtrl" onload="setActivePage('home')"></div>
 
-		    	<md-fab-actions>
-		      		<md-button aria-label="Home" class="md-fab md-raised md-mini" style="background: #212121;" ng-click="setActivePage('home')">
-		        		<i class="fa fa-home fa-lg" aria-hidden="true" style="color: white;"></i>
-						<md-tooltip>Home</md-tooltip>
-		      		</md-button>
-		    	</md-fab-actions>
-		  	</md-fab-speed-dial>
-	  	</div>
-	</div>
-	<div id="frontPage" layout="column" layout-align="center stretch" style="height: 100%"> 
-		<div class="nameContainer">
-			<div class="container-text">
-			    <h1 style="font-size: 6em; border-bottom: 1px solid #212121;">Colt Street.</h1>
-		    </div>
-		</div>
+<div class="divSize" layout="column" layout-align="center stretch" ng-controller="HomeCtrl"> 
+	<div class="homeContainer">
+<!-- 		<div class="container-text">
+			<h1 style="font-size: 6em; border-bottom: 1px solid #212121; margin: 0;">Colt Street.</h1>
+		</div> -->
+		<div class="container-text logo">
+		    <picture>
+				<source media="(min-width: 800px)"
+			          sizes="80vw"
+			          srcset="images/my-logo-lg.png">
+				<img src="images/my-logo-box-lg.png" alt="my-logo"
+			       sizes="80vw"
+			       srcset="images/my-logo-box-lg.png">
+			</picture>
+	    </div>
 	</div>
 </div>

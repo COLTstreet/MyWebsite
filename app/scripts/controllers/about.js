@@ -8,6 +8,7 @@
  * Controller of the mywebsiteApp
  */
 angular.module('mywebsiteApp')
-  .controller('AboutCtrl', function () {
+	.controller('AboutCtrl', ['$scope', '$window', function ($scope, $window) {
 
-  });
+		
+ 	}]);

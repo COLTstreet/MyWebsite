@@ -8,8 +8,8 @@
  * Controller of the mywebsiteApp
  */
 angular.module('mywebsiteApp')
-  .controller('MainCtrl', ['$scope', function ($scope) {
-    
+  .controller('MainCtrl', ['$scope', '$location', function ($scope, $location) {
+
 
     $scope.activePage = 'home';
 

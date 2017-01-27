@@ -41,7 +41,20 @@ angular
         controller: 'HomeCtrl',
         controllerAs: 'Home'
       })
+      .when('/portfolio', {
+        templateUrl: 'views/portfolio.html',
+        controller: 'PortfolioCtrl',
+        controllerAs: 'portfolio'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue-grey')
+        .accentPalette('green')
+        .warnPalette('red')
+        .backgroundPalette('grey')
+        .dark();
+});
