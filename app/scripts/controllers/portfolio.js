@@ -27,7 +27,7 @@ angular.module('mywebsiteApp')
    		var g = $scope.svg.append("g")
     		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-		d3.csv("scripts/data/skills.csv", function(d) { 
+		d3.csv("data/skills.csv", function(d) { 
 			d.Skill = +d.Skill;
 	  		return d;
 		}, function(error, data) {
@@ -108,7 +108,7 @@ angular.module('mywebsiteApp')
    		var g = $scope.svg.append("g")
     		.attr("transform", "translate(" + width/1.5 + "," + height/1.75 + ")");
 
-		d3.csv("scripts/data/skills.csv", function(d) { 
+		d3.csv("data/skills.csv", function(d) { 
 			d.Skill = +d.Skill;
 	  		return d;
 		}, function(error, data) {
