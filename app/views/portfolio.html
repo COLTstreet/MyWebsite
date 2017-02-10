@@ -3,7 +3,51 @@
 <div class="divSize" layout="column" layout-align="center stretch" ng-controller="PortfolioCtrl"> 
 	<div class="portContainer">
 		<div class="container-text">
-			<h1 style="font-size: 6em; border-bottom: 1px solid #212121; margin: 0;">Portfolio.</h1>
+			<h1 style="font-size: 5em; border-bottom: 1px solid #212121;margin: 0;background: #303030;">Data Visualizations.</h1>
+		</div>
+
+		<div layout="row" class="viz-container">
+			<div flex="95" style="height: 100%">
+				<svg width="90%" height="100%"></svg>
+			</div>
+			<div class="tool-menu"
+				ng-show="openTools"
+				ng-mouseenter="openTools = true"
+				ng-mouseleave="openTools = false">
+				<!--Color Tools-->
+				<div md-color-picker
+					style="margin: 5px;"
+					ng-model="chartColor"
+					ng-change="changeChartColor(chartColor)"
+					ng-show="showColorTools"
+					label="Choose a color"
+					default="#9c27b0"
+					md-color-generic-palette="false"
+					md-color-history="false">
+				</div>
+				<!--Visual Tools-->
+				<div ng-show="showChartTools">
+					<md-subheader class="md-no-sticky">Choose Visuals to Display</md-subheader>
+					<form style="margin: 5px">
+						<md-radio-group ng-model="chartData.default" class="md-primary">
+							<md-radio-button ng-repeat="d in chartOptions" ng-value="d.value" ng-click="buildChart(d.value)">{{d.label}}</md-radio-button>
+						</md-radio-group>
+					</form>
+				</div>
+			</div>
+			<div flex="5" style="width: 100%; height: 100%;" ng-mouseenter="openTools = !openTools" ng-mouseleave="openTools = !openTools">
+				<div class="tools" ng-show="openTools" layout="column" layout-align="starter center">
+					<div style="padding-top: 5px;">
+						<md-button class="md-fab md-small" ng-click="toggleTools('changeChartColor')"><i class="fa fa-paint-brush" aria-hidden="true" aria-label="color change"></i></md-button>
+					</div>
+					<div style="padding-top: 5px;">
+						<md-button class="md-fab md-small" ng-click="toggleTools('changeChartType')"><i class="fa fa-pie-chart" aria-hidden="true" aria-label="color change"></i></md-button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+
+<!-- Footer -->
+<div ng-include="'views/footer.html'" ng-controller="FooterCtrl" onload="setActivePage('portfolio')"></div>

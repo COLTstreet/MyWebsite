@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'mdColorPicker'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({
@@ -45,6 +46,11 @@ angular
         templateUrl: 'views/portfolio.html',
         controller: 'PortfolioCtrl',
         controllerAs: 'portfolio'
+      })
+      .when('/footer', {
+        templateUrl: 'views/footer.html',
+        controller: 'FooterCtrl',
+        controllerAs: 'footer'
       })
       .otherwise({
         redirectTo: '/'

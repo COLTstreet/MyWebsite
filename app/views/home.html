@@ -1,3 +1,4 @@
+<!-- Nav Bar -->
 <div ng-include="'views/main.html'" ng-controller="MainCtrl" onload="setActivePage('home')"></div>
 
 <div class="divSize" layout="column" layout-align="center stretch" ng-controller="HomeCtrl"> 
@@ -9,11 +10,16 @@
 		    <picture>
 				<source media="(min-width: 800px)"
 			          sizes="80vw"
-			          srcset="images/my-logo-lg.png">
-				<img src="images/my-logo-box-lg.png" alt="my-logo"
+			          srcset="images/my-logo-color.png">
+				<img src="images/my-logo-box-color.png" alt="my-logo"
 			       sizes="80vw"
-			       srcset="images/my-logo-box-lg.png">
+			       srcset="images/my-logo-box-color.png">
 			</picture>
 	    </div>
 	</div>
 </div>
+
+
+<!-- Footer -->
+<div ng-include="'views/footer.html'" ng-controller="FooterCtrl"></div>
+
