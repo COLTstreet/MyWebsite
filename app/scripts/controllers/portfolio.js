@@ -240,8 +240,8 @@ angular.module('mywebsiteApp')
 
 		//Default Variables
 		$scope.openTools = false;
-		$scope.chartColor = "#9c27b0";
-		$scope.chartHoverColor = "#009688";
+		$scope.chartColor = "#4CAF52";
+		$scope.chartHoverColor = "#3B8386";
 		$scope.showColorTools = false;
 		$scope.showChartTools = false;
 

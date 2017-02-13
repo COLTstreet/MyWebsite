@@ -75,6 +75,9 @@ body {
   text-align: center;
   z-index: 2;
   position: relative;
+  color: #4caf50;
+  /* border: 10px solid #212121; */
+  border-bottom: 10px solid #212121;
 }
 
 .viz-container {
