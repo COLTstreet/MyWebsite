@@ -3,7 +3,7 @@
 <div class="divSize" layout="column" layout-align="center stretch" ng-controller="PortfolioCtrl"> 
 	<div class="portContainer">
 		<div class="container-text">
-			<h1 style="font-size: 5em; border-bottom: 1px solid #212121;margin: 0;background: #303030;">Data Visualizations.</h1>
+			<h1 style="font-size: 3em; border-bottom: 1px solid #212121;margin: 0;background: #303030;">Data Visualizations.</h1>
 		</div>
 
 		<div layout="row" class="viz-container">
@@ -15,19 +15,31 @@
 				ng-mouseenter="openTools = true"
 				ng-mouseleave="openTools = false">
 				<!--Color Tools-->
-				<div md-color-picker
-					style="margin: 5px;"
-					ng-model="chartColor"
-					ng-change="changeChartColor(chartColor)"
-					ng-show="showColorTools"
-					label="Choose a color"
-					default="#9c27b0"
-					md-color-generic-palette="false"
-					md-color-history="false">
+				<div ng-show="showColorTools">
+					<md-subheader class="md-no-sticky" style="background: #4CAF50">Chart Color</md-subheader>
+					<div md-color-picker
+						style="margin: 5px;"
+						ng-model="chartColor"
+						ng-change="changeChartColor(chartColor)"
+						label="Choose a color"
+						default="#9c27b0"
+						md-color-generic-palette="false"
+						md-color-history="false">
+					</div>
+					<md-subheader class="md-no-sticky" style="background: #4CAF50">Chart Hover Color</md-subheader>
+					<div md-color-picker
+						style="margin: 5px;"
+						ng-model="chartHoverColor"
+						ng-change="changeChartHoverColor(chartHoverColor)"
+						label="Choose a color"
+						default="#009688"
+						md-color-generic-palette="false"
+						md-color-history="false">
+					</div>
 				</div>
 				<!--Visual Tools-->
 				<div ng-show="showChartTools">
-					<md-subheader class="md-no-sticky">Choose Visuals to Display</md-subheader>
+					<md-subheader class="md-no-sticky" style="background: #4CAF50">Choose Visuals to Display</md-subheader>
 					<form style="margin: 5px">
 						<md-radio-group ng-model="chartData.default" class="md-primary">
 							<md-radio-button ng-repeat="d in chartOptions" ng-value="d.value" ng-click="buildChart(d.value)">{{d.label}}</md-radio-button>
@@ -45,6 +57,12 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div style="text-align: center;">
+			<p>This is a simple example of the different kinds of visualizations. The data behind these charts visualizes my own proficiencies with each listed language.</p>
+		</div>
+		<div class="container-text">
+			<h1 style="font-size: 3em; border-bottom: 1px solid #212121;margin: 0;background: #303030;">Another Section</h1>
 		</div>
 	</div>
 </div>

@@ -63,7 +63,7 @@ angular.module('mywebsiteApp')
 				return y(d.skill);
 			})
 			.on("mouseover", function() {
-				d3.select(this).attr("fill", "#009688");
+				d3.select(this).attr("fill", $scope.chartHoverColor);
 			})
 			.on("mouseout", function() {
 				d3.select(this).attr("fill", $scope.chartColor);
@@ -139,7 +139,7 @@ angular.module('mywebsiteApp')
 				.style("fill", function (d) { return $scope.chartColor; })
 				.attr("d", arc)
 				.on("mouseover", function() {
-					d3.select(this).style("fill", "#009688");
+					d3.select(this).style("fill", $scope.chartHoverColor);
 				})
 				.on("mouseout", function() {
 					d3.select(this).style("fill", $scope.chartColor);
@@ -204,6 +204,16 @@ angular.module('mywebsiteApp')
 		}
 	}
 
+	$scope.changeChartHoverColor = function(color){
+		if($scope.showRadial == true) {
+			$scope.chartHoverColor = color;
+			$scope.buildRadialChart();
+		} else if($scope.showBar == true) {
+			$scope.chartHoverColor = color;
+			$scope.buildBarChart();
+		}
+	}
+
 	$scope.buildChart = function(type){
 		if(type == 'Radial'){
 			if($scope.showRadial == false) {
@@ -231,6 +241,7 @@ angular.module('mywebsiteApp')
 		//Default Variables
 		$scope.openTools = false;
 		$scope.chartColor = "#9c27b0";
+		$scope.chartHoverColor = "#009688";
 		$scope.showColorTools = false;
 		$scope.showChartTools = false;
 
@@ -252,7 +263,7 @@ angular.module('mywebsiteApp')
 			{ topic: "AngularJS", skill: 5 },
 			{ topic: "Jquery", skill: 2 },
 			{ topic: "JSP", skill: 2 },
-			{ topic: "Hibernate", skill: 2 },
+			{ topic: "Hibernate", skill: 1 },
 			{ topic: "Spring", skill: 1 },
 			{ topic: "MySQL", skill: 2 },
 			{ topic: "Leaflet.js", skill: 4 },

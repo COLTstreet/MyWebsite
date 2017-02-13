@@ -81,7 +81,6 @@ body {
   height: 45%;
   width: 100%;
   margin: auto;
-  border: 1px solid black;
 }
 
 .tools {
@@ -122,7 +121,7 @@ body {
 
 .tool-menu {
   height: 100%;
-  background: #9E9E9E;
+  background: #BDBDBD;
 }
 
 .md-small  {
