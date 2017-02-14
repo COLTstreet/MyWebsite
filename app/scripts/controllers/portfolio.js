@@ -255,19 +255,19 @@ angular.module('mywebsiteApp')
 		];
 
 		$scope.data = [
-			{ topic: "HTML", skill: 5},
-			{ topic: "CSS", skill: 5},
-			{ topic: "Javascript", skill: 5 },
-			{ topic: "Java", skill: 5 },
-			{ topic: "Vaadin", skill: 3 },
-			{ topic: "AngularJS", skill: 5 },
-			{ topic: "Jquery", skill: 2 },
+			{ topic: "HTML", skill: 10},
+			{ topic: "CSS", skill: 10},
+			{ topic: "Javascript", skill: 9 },
+			{ topic: "Java", skill: 8 },
+			{ topic: "Vaadin", skill: 8 },
+			{ topic: "AngularJS", skill: 9 },
+			{ topic: "Jquery", skill: 4 },
 			{ topic: "JSP", skill: 2 },
-			{ topic: "Hibernate", skill: 1 },
+			{ topic: "Hibernate", skill: 2 },
 			{ topic: "Spring", skill: 1 },
-			{ topic: "MySQL", skill: 2 },
-			{ topic: "Leaflet.js", skill: 4 },
-			{ topic: "D3.js", skill: 5 }
+			{ topic: "MySQL", skill: 3 },
+			{ topic: "Leaflet.js", skill: 5 },
+			{ topic: "D3.js", skill: 8 }
 		];
 
 		$scope.buildRadialChart();
