@@ -10,5 +10,4 @@
 angular.module('mywebsiteApp')
 	.controller('HomeCtrl', ['$scope', '$window', function ($scope, $window) {
 
-		
  }]);

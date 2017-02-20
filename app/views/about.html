@@ -1,9 +1,109 @@
 <div ng-include="'views/main.html'" ng-controller="MainCtrl" onload="setActivePage('about')"></div>
 
-<div class="divSize" layout="column" layout-align="center stretch" ng-controller="AboutCtrl"> 
+<div style="height: 800px;" layout="column" layout-align="center stretch" ng-controller="AboutCtrl"> 
 	<div class="aboutContainer">
-		<div class="container-text">
-			<h1 style="font-size: 5em; border-bottom: 1px solid #212121; margin: 0;background: #303030;">About Me.</h1>
+		<div class="pageContainer">
+			<div layout="row" layout-xs="column" style="margin: 2%;">
+				<div flex layout="column" style="z-index: 2;">
+					<div>
+						<md-card class="about-card animated slideInLeft">
+							<md-card-header style="padding-bottom: 0;">
+								<md-card-header-text>
+									<h3 style="color: #4caf50; font-size: 1.5em;">About Me</h3>
+								</md-card-header-text>
+							</md-card-header>
+							<md-card-content style="padding-top: 0;">
+								<div>
+									<p>
+										Hi! My name is Colt Street and I'm a full stack developer. I currently reside in Arlington, Va. and work for Deloitte Consulting in the federal sector. 
+										Developing unique, gorgeous websites and web applications is a passion of mine. Most of my current work (and this website) has me focused on utilizing AngularJS and Material Design,
+										but I enjoy learning new and exciting languages to further my skills as a web developer. 
+									</p>
+									<p>Another passion of mine is sports. Finding ways to mesh web design and sports is amazing to me, 
+										but I also enjoy working on finding new ways to display and interact with the user, no matter what the content may be. Overall, I enjoy building websites and web applications, watching movies and playing basketball with my amazing girlfriend, a nice cold beer, and just enjoying what life decides to throw at me next. 
+									</p> 
+									<p>
+										Check out some samples of my work on the Portfolio page. Enjoy!
+									</p>
+								</div>
+								<div>
+									<md-button style="background: #4caf50; color: #212121; margin: 0;">
+										<a target="_self" href="/images/Colt-Street.docx" download="Colt-Street-Resume"
+											style="text-decoration: none; color: #212121">Download Resume</a>
+									</md-button>
+								</div>
+							</md-card-content>
+						</md-card>
+					</div>
+				</div>
+				<!--<div flex>
+					<div>
+						<md-card class="about-card">
+							<md-card-content>
+								<div>
+									<img width="100%" height="100%" src="/images/me-small.png"/>
+								</div>
+							</md-card-content>
+						</md-card>
+					</div>
+				</div>-->
+				<div flex  style="z-index: 2;">
+					<div>
+						<md-card class="about-card animated slideInRight">
+							<md-card-header style="padding-bottom: 0;">
+								<md-card-header-text>
+									<h3 style="color: #4caf50; font-size: 1.5em;">Contact Information</h3>
+								</md-card-header-text>
+							</md-card-header>
+							<md-card-content>
+								<div ng-repeat="item in data track by $index">
+									<div layout="row">
+										<div class="md-list-item-text">
+											<p style="color: #212121;padding-right: 20px;">{{item.label}}</p>
+										</div>
+										<div class="md-list-item-text">
+											<p style="color: #212121">{{item.value}}</p>
+										</div>
+									</div>
+									<md-divider ng-if="!$last" style="background: rgba(0, 0, 0, 0.4)"></md-divider>
+								</div>
+								<div layout="row">
+									<div>
+										<md-button class="md-fab md-mini md-primary" ng-href="https://www.linkedin.com/in/colt-street-b1b34946" target="_blank" aria-label="LinkedIn">
+											<i class="fa fa-linkedin-square fa-lg" aria-hidden="true" aria-label="linkedin"></i>
+											<md-tooltip>LinkedIn</md-tooltip>
+										</md-button>
+									</div>
+									<div>
+										<md-button class="md-fab md-mini md-primary" ng-href="https://github.com/COLTstreet" target="_blank" aria-label="GitHub">
+											<i class="fa fa-git-square fa-lg" aria-hidden="true" aria-label="GitHub"></i>
+											<md-tooltip>GitHub</md-tooltip>
+										</md-button>
+									</div>
+									<div>
+										<md-button class="md-fab md-mini md-primary" ng-href="https://bl.ocks.org/COLTstreet" target="_blank" aria-label="bl.ocks">
+											<img class="png-icon" src="/images/d-three-sm.png"/>
+											<md-tooltip>bl.ocks</md-tooltip>
+										</md-button>
+									</div>
+									<div>
+										<md-button class="md-fab md-mini md-primary" ng-href="mailto:colt.k.street@gmail.com?Subject=Hello!" target="_blank" aria-label="Gmail">
+											<i class="fa fa-envelope" aria-hidden="true" aria-label="Gmail"></i>
+											<md-tooltip>Gmail</md-tooltip>
+										</md-button>
+									</div>
+									<div>
+										<md-button class="md-fab md-mini md-primary" ng-href="https://plus.google.com/u/0/116028321943063867870" target="_blank" aria-label="Google+">
+											<i class="fa fa-google-plus" aria-hidden="true" aria-label="Google"></i>
+											<md-tooltip>Google+</md-tooltip>
+										</md-button>
+									</div>
+								</div>
+							</md-card-content>
+						</md-card>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -10,5 +10,13 @@
 angular.module('mywebsiteApp')
 	.controller('AboutCtrl', ['$scope', '$window', function ($scope, $window) {
 
+		$scope.data = [
+			{ label: "Name:", value: "Colt Street"},
+			{ label: "Age:", value: "26"},
+			{ label: "Phone:", value: "(304) 771-1419" },
+			{ label: "Email:", value: "colt.k.street@gmail.com" },
+		];
+
 		
+
  	}]);

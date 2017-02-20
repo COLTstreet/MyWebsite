@@ -5,7 +5,7 @@ body {
   max-height: 1200px;
 }
 
-.divSize {
+#divSize {
   height: 1600px;
 }
 
@@ -43,6 +43,14 @@ body {
   height: 100%;
   background: #f5f5f5;
 }
+
+.about-card {
+  background: #f5f5f5;
+  color: #212121;
+  z-index: 2;
+  opacity: .8;
+}
+
 .aboutContainer:before {
   content: ' ';
   display: block;
@@ -51,9 +59,9 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 0;
   opacity: 0.3;
-  background-image: url(/images/girraffe.jpg);
+  background-image: url(/images/about.jpg);
   background-repeat: no-repeat;
   background-position: 100% 70%;
   -ms-background-size: cover;
@@ -61,6 +69,18 @@ body {
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
+}
+
+.pageContainer {
+  z-index: 10;
+}
+
+.png-icon {
+  margin: 45% auto auto;
+  padding: 0;
+  display: inline-block;
+  background-repeat: no-repeat no-repeat;
+  pointer-events: none;
 }
 
 .portContainer {
