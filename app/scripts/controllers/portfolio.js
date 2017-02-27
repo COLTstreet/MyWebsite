@@ -14,6 +14,8 @@ angular.module('mywebsiteApp')
 	$scope.buildBarChart = function() {
 		$scope.showRadial = false;
 		$scope.showBar = true;
+		$scope.showBubble = false;
+		$scope.showPie = false;
 
 		d3.selectAll("g").remove();
 		$scope.svg = d3.select("svg");
@@ -80,9 +82,168 @@ angular.module('mywebsiteApp')
 
 	}
 
+	$scope.buildPieChart = function() {
+		$scope.showRadial = false;
+		$scope.showBar = false;
+		$scope.showBubble = false;
+		$scope.showPie = true;
+
+		d3.selectAll("g").remove();
+		$scope.svg = d3.select("svg");
+    	var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    		width = +$scope.svg._groups[0][0].clientWidth - margin.left - margin.right,
+   			height = +$scope.svg._groups[0][0].clientHeight - margin.top - margin.bottom,
+			barHeight = height / 2 - 40,
+			toolWidth = document.getElementById("tools").clientWidth,
+			radius = Math.min(width, height) / 2;
+
+		var toolWidth = document.getElementById("tools").clientWidth;
+
+   		var gContainer = $scope.svg.append("g")
+    		.attr("transform", "translate(" + (width+toolWidth)/2 + "," + height/1.75 + ")");
+
+		var color = d3.scaleOrdinal()
+    		.range(["#4CAF50", "#673AB7", "#2196F3", "#F44336", "#FF9800", "#E91E63", "#607D8B"]);
+
+		var arc = d3.arc()
+			.outerRadius(radius - 10)
+			.innerRadius(0);
+
+		var arcOver = d3.arc()
+			.innerRadius(0)
+			.outerRadius(radius + 15);
+
+		var labelArc = d3.arc()
+			.outerRadius(radius-40)
+			.innerRadius(radius-40);
+
+		var pie = d3.pie()
+			.sort(null)
+			.value(function(d) { return d.skill; });
+
+		var g = gContainer.selectAll(".arc")
+			.data(pie($scope.data))
+			.enter().append("g")
+			.attr("class", "arc");
+
+		g.append("path")
+			.attr("d", arc)
+			.style("fill", function(d) { return color(d.data.topic); })
+			.on("mouseover", function (d, i) {
+					g.selectAll("*").style("opacity", 0.7);
+					var slice = d3.select(this);
+					slice.style("opacity", 1);
+					slice.transition()
+						.duration(200)
+						.attr("d", arcOver);
+			})
+			.on("mouseout", function (d) {
+				g.selectAll("*").style("opacity", 1);
+				d3.select(this).transition()
+					.duration(250)
+					.attr("d", arc);
+			});
+
+		g.append("text")
+			.attr("transform", function(d) { 
+				var midAngle = d.endAngle < Math.PI ? d.startAngle/2 + d.endAngle/2 : d.startAngle/2  + d.endAngle/2 + Math.PI ;
+				return "translate(" + labelArc.centroid(d)[0] + "," + labelArc.centroid(d)[1] + ") rotate(-90) rotate(" + (midAngle * 180/Math.PI) + ")"; 
+			})
+			.attr("dy", ".35em")
+			.attr('text-anchor','middle')
+			.style("font-size", ".75em")
+			.text(function(d) { return d.data.topic; });
+
+		function type(d) {
+			d.skill = +d.skill;
+			return d;
+		}
+	}
+
+	$scope.buildBubbleChart = function() {
+		$scope.showRadial = false;
+		$scope.showBar = false;
+		$scope.showPie = false;
+		$scope.showBubble = true;
+
+		d3.selectAll("g").remove();
+		$scope.svg = d3.select("svg");
+    	var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    		width = +$scope.svg._groups[0][0].clientWidth - margin.left - margin.right,
+   			height = +$scope.svg._groups[0][0].clientHeight - margin.top - margin.bottom,
+			barHeight = height / 2 - 40,
+			toolWidth = document.getElementById("tools").clientWidth;
+
+		var g = $scope.svg.append("g")
+    		.attr("transform", "translate(" + 100 + "," + 0 + ")");
+
+		var format = d3.format(",d");
+
+		var bubble = d3.pack()
+			.size([width, height])
+			.padding(1.5);
+
+		var temp = classes($scope.hData);
+
+		var root = d3.hierarchy(temp)
+			.sum(function(d) { 
+				return d.value; })
+			.sort(function(a, b) { 
+				return b.value - a.value; 
+				});
+
+		bubble(root);
+		var node = g.selectAll(".node")
+			.data(root.children)
+			.enter().append("g")
+			.attr("class", "node")
+			.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+		node.append("title")
+			.text(function(d) { return d.data.className + ": " + format(d.value); });
+
+		node.append("circle")
+			.attr("r", function(d) { return d.r; })
+			.style("fill", function(d) { 
+				return $scope.chartColor;
+			})
+			.on("mouseover", function() {
+				d3.select(this).style("fill", $scope.chartHoverColor);
+			})
+			.on("mouseout", function() {
+				d3.select(this).style("fill", $scope.chartColor);
+			});
+
+		node.append("text")
+			.attr("dy", ".3em")
+			.style("text-anchor", "middle")
+			.style("font-size", ".75em")
+			.text(function(d) { 
+				return d.data.className.substring(0, d.r / 3); 
+			});
+
+		// Returns a flattened hierarchy containing all leaf nodes under the root.
+		function classes(root) {
+			var classes = [];
+
+			function recurse(name, node) {
+				if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
+				else classes.push({packageName: name, className: node.name, value: node.value});
+			}
+
+			recurse(null, root);
+			return {children: classes};
+		}
+
+		d3.select(self.frameElement).style("height", height + "px");
+
+	}
+
 	$scope.buildRadialChart = function() {
 		$scope.showRadial = true;
 		$scope.showBar = false;
+		$scope.showBubble = false;
+		$scope.showPie = false;
 
 		d3.selectAll("g").remove();
 		$scope.svg = d3.select("svg");
@@ -94,8 +255,10 @@ angular.module('mywebsiteApp')
    		var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
     		y = d3.scaleLinear().rangeRound([height, 0]);
 
+		var toolWidth = document.getElementById("tools").clientWidth;
+
    		var g = $scope.svg.append("g")
-    		.attr("transform", "translate(" + width/1.5 + "," + height/1.75 + ")");
+    		.attr("transform", "translate(" + (width+toolWidth)/2 + "," + height/1.75 + ")");
 
 		$scope.data.sort(function(a,b) { return b.skill - a.skill; });
 
@@ -201,6 +364,12 @@ angular.module('mywebsiteApp')
 		} else if($scope.showBar == true) {
 			$scope.chartColor = color;
 			$scope.buildBarChart();
+		} else if($scope.showBubble == true) {
+			$scope.chartColor = color;
+			$scope.buildBubbleChart();
+		} else if($scope.showPie == true) {
+			$scope.chartColor = color;
+			$scope.buildPieChart();
 		}
 	}
 
@@ -211,6 +380,12 @@ angular.module('mywebsiteApp')
 		} else if($scope.showBar == true) {
 			$scope.chartHoverColor = color;
 			$scope.buildBarChart();
+		} else if($scope.showBubble == true) {
+			$scope.chartHoverColor = color;
+			$scope.buildBubbleChart();
+		} else if($scope.showPie == true) {
+			$scope.chartHoverColor = color;
+			$scope.buildPieChart();
 		}
 	}
 
@@ -223,7 +398,15 @@ angular.module('mywebsiteApp')
 			if($scope.showBar == false) {
 				$scope.buildBarChart();
 			}
-		};
+		} else if(type == 'Bubble') {
+			if($scope.showBubble == false) {
+				$scope.buildBubbleChart();
+			}
+		} else if(type == 'Pie') {
+			if($scope.showPie == false) {
+				$scope.buildPieChart();
+			}
+		}
 	}
 
 	$scope.toggleTools = function(type) {
@@ -244,6 +427,9 @@ angular.module('mywebsiteApp')
 		$scope.chartHoverColor = "#3B8386";
 		$scope.showColorTools = false;
 		$scope.showChartTools = false;
+		$scope.showViz = true;
+		$scope.showHoopfire = true;
+		$scope.showEducation = true;
 
 		//Chart Options
 		$scope.chartData = {
@@ -251,7 +437,9 @@ angular.module('mywebsiteApp')
 		};
 		$scope.chartOptions = [
 			{ label: 'Bar', value: 'Bar' },
-			{ label: 'Radial', value: 'Radial' }
+			{ label: 'Radial', value: 'Radial' },
+			{ label: 'Bubble', value: 'Bubble' },
+			{ label: 'Pie', value: 'Pie' }
 		];
 
 		$scope.data = [
@@ -270,10 +458,35 @@ angular.module('mywebsiteApp')
 			{ topic: "D3.js", skill: 8 }
 		];
 
+		$scope.hData = {
+			"name": "Skills",
+			"children": [
+				{ "name": "HTML", "value": 10 },
+				{ "name": "CSS", "value": 10 },
+				{ "name": "Javascript", "value": 9 },
+				{ "name": "Java", "value": 8 },
+				{ "name": "Vaadin", "value": 8 },
+				{ "name": "AngularJS", "value": 9},
+				{ "name": "Jquery", "value": 4 },
+				{ "name": "JSP", "value": 2 },
+				{ "name": "Hibernate", "value": 2 },
+				{ "name": "Spring", "value": 1 },
+				{ "name": "MySQL", "value": 3 },
+				{ "name": "Leaflet.js", "value": 5 },
+				{ "name": "D3.js", "value": 8 }
+			]
+		},
+
 		$scope.buildRadialChart();
 
 	    angular.element($window).bind('resize', function(){
-	    	$scope.buildRadialChart();
+	    	if($scope.showRadial == true){
+				$scope.buildRadialChart();
+			} else if($scope.showBar == true) {
+				$scope.buildBarChart();
+			} else if($scope.showBubble == true) {
+				$scope.buildBubbleChart();
+			}
 	    });
 
 	}
