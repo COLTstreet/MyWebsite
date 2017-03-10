@@ -248,17 +248,17 @@ angular.module('mywebsiteApp')
 		d3.selectAll("g").remove();
 		$scope.svg = d3.select("svg");
     	var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    		width = +$scope.svg._groups[0][0].clientWidth - margin.left - margin.right,
+    		width = +$scope.svg._groups[0][0].clientWidth,
    			height = +$scope.svg._groups[0][0].clientHeight - margin.top - margin.bottom,
 			barHeight = height / 2 - 40;
 
    		var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
     		y = d3.scaleLinear().rangeRound([height, 0]);
 
-		var toolWidth = document.getElementById("tools").clientWidth;
+		// var toolWidth = document.getElementById("tools").clientWidth;
 
    		var g = $scope.svg.append("g")
-    		.attr("transform", "translate(" + (width+toolWidth)/2 + "," + height/1.75 + ")");
+    		.attr("transform", "translate(" + width/2 + "," + height/1.75 + ")");
 
 		$scope.data.sort(function(a,b) { return b.skill - a.skill; });
 

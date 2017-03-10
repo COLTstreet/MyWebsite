@@ -11,10 +11,11 @@
 		</div>
 		<div layout="row" class="viz-container" style="max-height: 500px;" ng-show="showViz">
 			<div layout="column" layout-align="start center" style="height: 100%; max-height: 500px; width: 100%;" >
-				<div style="height: 100%; max-height: 500px; width: 100%;"><svg style="max-height: 500px" width="100%" height="100%"></svg></div>
+				<div style="height: 100%; max-height: 500px; width: 100%;">
+					<svg style="max-height: 500px" width="100%" height="100%"></svg>
+				</div>
 			</div>
 			<div class="tool-menu">
-				<!--Color Tools-->
 				<div ng-show="showColorTools">
 					<md-subheader class="md-no-sticky" style="background: #4CAF50">Chart Color</md-subheader>
 					<div md-color-picker
@@ -37,7 +38,6 @@
 						md-color-history="false">
 					</div>
 				</div>
-				<!--Visual Tools-->
 				<div ng-show="showChartTools">
 					<md-subheader class="md-no-sticky" style="background: #4CAF50">Choose Visuals to Display</md-subheader>
 					<form style="margin: 5px">
