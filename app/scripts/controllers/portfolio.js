@@ -94,13 +94,11 @@ angular.module('mywebsiteApp')
     		width = +$scope.svg._groups[0][0].clientWidth - margin.left - margin.right,
    			height = +$scope.svg._groups[0][0].clientHeight - margin.top - margin.bottom,
 			barHeight = height / 2 - 40,
-			toolWidth = document.getElementById("tools").clientWidth,
+			containerWidth = document.getElementById("divSize").clientWidth,
 			radius = Math.min(width, height) / 2;
 
-		var toolWidth = document.getElementById("tools").clientWidth;
-
    		var gContainer = $scope.svg.append("g")
-    		.attr("transform", "translate(" + (width+toolWidth)/2 + "," + height/1.75 + ")");
+    		.attr("transform", "translate(" + containerWidth/2 + "," + height/1.75 + ")");
 
 		var color = d3.scaleOrdinal()
     		.range(["#4CAF50", "#673AB7", "#2196F3", "#F44336", "#FF9800", "#E91E63", "#607D8B"]);
@@ -171,8 +169,7 @@ angular.module('mywebsiteApp')
     	var margin = {top: 20, right: 20, bottom: 30, left: 40},
     		width = +$scope.svg._groups[0][0].clientWidth - margin.left - margin.right,
    			height = +$scope.svg._groups[0][0].clientHeight - margin.top - margin.bottom,
-			barHeight = height / 2 - 40,
-			toolWidth = document.getElementById("tools").clientWidth;
+			barHeight = height / 2 - 40;
 
 		var g = $scope.svg.append("g")
     		.attr("transform", "translate(" + 100 + "," + 0 + ")");
@@ -255,10 +252,10 @@ angular.module('mywebsiteApp')
    		var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
     		y = d3.scaleLinear().rangeRound([height, 0]);
 
-		// var toolWidth = document.getElementById("tools").clientWidth;
+		var containerWidth = document.getElementById("divSize").clientWidth;
 
    		var g = $scope.svg.append("g")
-    		.attr("transform", "translate(" + width/2 + "," + height/1.75 + ")");
+    		.attr("transform", "translate(" + containerWidth/2 + "," + height/1.75 + ")");
 
 		$scope.data.sort(function(a,b) { return b.skill - a.skill; });
 
