@@ -1,0 +1,242 @@
+[
+  {
+    "teamId": 1,
+    "abbreviation": "ATL",
+    "teamName": "Atlanta Hawks",
+    "simpleName": "Hawks",
+    "location": [50,50],
+    "arena": "Philips Arena"
+  },
+  {
+    "teamId": 2,
+    "abbreviation": "BOS",
+    "teamName": "Boston Celtics",
+    "simpleName": "Celtics",
+    "location": [33.758014, -84.395071],
+    "arena": "TD Garden"
+  },
+  {
+    "teamId": 3,
+    "abbreviation": "BKN",
+    "teamName": "Brooklyn Nets",
+    "simpleName": "Nets",
+    "location": [42.364145, -71.063011],
+    "arena": "Barclays Center"
+  },
+  {
+    "teamId": 4,
+    "abbreviation": "CHA",
+    "teamName": "Charlotte Hornets",
+    "simpleName": "Hornets",
+    "location": [35.225148, -80.839237],
+    "arena": "Spectrum Center"
+  },
+  {
+    "teamId": 5,
+    "abbreviation": "CHI",
+    "teamName": "Chicago Bulls",
+    "simpleName": "Bulls",
+    "location": [41.880647, -87.674153],
+    "arena": "United Center"
+  },
+  {
+    "teamId": 6,
+    "abbreviation": "CLE",
+    "teamName": "Cleveland Cavaliers",
+    "simpleName": "Cavaliers",
+    "location": [41.496600, -81.688212],
+    "arena": "Quicken Loans Arena"
+  },
+  {
+    "teamId": 7,
+    "abbreviation": "DAL",
+    "teamName": "Dallas Mavericks",
+    "simpleName": "Mavericks",
+    "location": [32.790492, -96.810285],
+    "arena": "American Airlines Center"
+  },
+  {
+    "teamId": 8,
+    "abbreviation": "DEN",
+    "teamName": "Denver Nuggets",
+    "simpleName": "Nuggets",
+    "location": [39.748660, -105.00771],
+    "arena": "Pepsi Center"
+  },
+  {
+    "teamId": 9,
+    "abbreviation": "DET",
+    "teamName": "Detroit Pistons",
+    "simpleName": "Pistons",
+    "location": [42.696885, -83.245793],
+    "arena": "The Palace of Auburn Hills"
+  },
+  {
+    "teamId": 10,
+    "abbreviation": "GSW",
+    "teamName": "Golden State Warriors",
+    "simpleName": "Warriors",
+    "location": [37.802306, -122.273975],
+    "arena": "Oracle Arena"
+  },
+  {
+    "teamId": 11,
+    "abbreviation": "HOU",
+    "teamName": "Houston Rockets",
+    "simpleName": "Rockets",
+    "location": [29.750742, -95.362231],
+    "arena": "Toyota Center"
+  },
+  {
+    "teamId": 12,
+    "abbreviation": "IND",
+    "teamName": "Indiana Pacers",
+    "simpleName": "Pacers",
+    "location": [39.763930, -86.155464],
+    "arena": "Bankers Life Fieldhouse"
+  },
+  {
+    "teamId": 13,
+    "abbreviation": "LAC",
+    "teamName": "Los Angeles Clippers",
+    "simpleName": "Clippers",
+    "location": [34.043017, -118.267254],
+    "arena": "Staples Center"
+  },
+  {
+    "teamId": 14,
+    "abbreviation": "LAL",
+    "teamName": "Los Angeles Lakers",
+    "simpleName": "Lakers",
+    "location": [34.043017, -118.267254],
+    "arena": "Staples Center"
+  },
+  {
+    "teamId": 15,
+    "abbreviation": "MEM",
+    "teamName": "Memphis Grizzlies",
+    "simpleName": "Grizzlies",
+    "location": [35.143186, -90.050613],
+    "arena": "FedExForum"
+  },
+  {
+    "teamId": 16,
+    "abbreviation": "MIA",
+    "teamName": "Miami Heat",
+    "simpleName": "Heat",
+    "location": [25.781401, -80.186969],
+    "arena": "American Airlines Arena"
+  },
+  {
+    "teamId": 17,
+    "abbreviation": "MIL",
+    "teamName": "Milwaukee Bucks",
+    "simpleName": "Bucks",
+    "location": [43.043651, -87.917199],
+    "arena": "Bradley Center"
+  },
+  {
+    "teamId": 18,
+    "abbreviation": "MIN",
+    "teamName": "Minnesota Timberwolves",
+    "simpleName": "Timberwolves",
+    "location": [44.979455, -93.27619],
+    "arena": "Target Center"
+  },
+  {
+    "teamId": 19,
+    "abbreviation": "NOP",
+    "teamName": "New Orleans Pelicans",
+    "simpleName": "Pelicans",
+    "location": [29.949035, -90.082057],
+    "arena": "Smoothie King Center"
+  },
+  {
+    "teamId": 20,
+    "abbreviation": "NYK",
+    "teamName": "New York Knicks",
+    "simpleName": "Knicks",
+    "location": [40.750504, -73.993439],
+    "arena": "Madison Square Garden"
+  },
+  {
+    "teamId": 21,
+    "abbreviation": "OKC",
+    "teamName": "Oklahoma City Thunder",
+    "simpleName": "Thunder",
+    "location": [35.463417, -97.515118],
+    "arena": "Chesepeake Energy Arena"
+  },
+  {
+    "teamId": 22,
+    "abbreviation": "ORL",
+    "teamName": "Orlando Magic",
+    "simpleName": "Magic",
+    "location": [28.547889, -81.376342],
+    "arena": "Amway Center"
+  },
+  {
+    "teamId": 23,
+    "abbreviation": "PHI",
+    "teamName": "Philadelphia 76ers",
+    "simpleName": "76ers",
+    "location": [39.901201, -75.17198],
+    "arena": "Wells Fargo Center"
+  },
+  {
+    "teamId": 24,
+    "abbreviation": "PHX",
+    "teamName": "Phoenix Suns",
+    "simpleName": "Suns",
+    "location": [33.445737, -112.071201],
+    "arena": "Talking Stick Resort Arena"
+  },
+  {
+    "teamId": 25,
+    "abbreviation": "POR",
+    "teamName": "Portland Trail Blazers",
+    "simpleName": "Trail Blazers",
+    "location": [45.531565, -122.666842],
+    "arena": "Moda Center"
+  },
+  {
+    "teamId": 26,
+    "abbreviation": "SAC",
+    "teamName": "Sacramento Kings",
+    "simpleName": "Kings",
+    "location": [38.580641, -121.499619],
+    "arena": "Golden 1 Center"
+  },
+  {
+    "teamId": 27,
+    "abbreviation": "SAS",
+    "teamName": "San Antonio Spurs",
+    "simpleName": "Spurs",
+    "location": [29.427071, -98.437445],
+    "arena": "AT&T Center"
+  },
+  {
+    "teamId": 28,
+    "abbreviation": "TOR",
+    "teamName": "Toronto Raptors",
+    "simpleName": "Raptors",
+    "location": [43.643466, -79.379099],
+    "arena": "Air Canada Centre"
+  },
+  {
+    "teamId": 29,
+    "abbreviation": "UTA",
+    "teamName": "Utah Jazz",
+    "simpleName": "Jazz",
+    "location": [40.768268, -111.901087],
+    "arena": "Vivent Smart Home Arena"
+  },
+  {
+    "teamId": 30,
+    "abbreviation": "WAS",
+    "teamName": "Washington Wizards",
+    "simpleName": "Wizards",
+    "location": [38.898125, -77.02088],
+    "arena": "Verizon Center"
+  }
+]
