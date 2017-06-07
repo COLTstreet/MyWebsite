@@ -58,8 +58,8 @@ angular
   })
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-        .primaryPalette('blue-grey')
-        .accentPalette('green')
+        .primaryPalette('teal')
+        .accentPalette('light-blue')
         .warnPalette('red')
         .backgroundPalette('grey')
         .dark();

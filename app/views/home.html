@@ -1,25 +1,75 @@
-<!-- Nav Bar -->
-<div ng-include="'views/main.html'" ng-controller="MainCtrl" onload="setActivePage('home')"></div>
+<div class="page-body" layout="column" layout-align="start stretch" ng-controller="HomeCtrl">
+	<div id="name-section" class="name-container" layout="column" layout-align="center stretch">
+		<div class="name-logo" layout="row" layout-align="center center">Colt Street</div>
+		<picture> 
+			<source media="(min-width: 960px)" sizes="80vw" srcset="images/hoop.png"> 
+			<img class="hoop-logo" src="" alt="" sizes="80vw" srcset=""> 
+		</picture>
+	</div>
 
-<div style="height: 800px;" layout="column" layout-align="center stretch" ng-controller="HomeCtrl"> 
-	<div class="homeContainer">
-<!-- 		<div class="container-text">
-			<h1 style="font-size: 6em; border-bottom: 1px solid #212121; margin: 0;">Colt Street.</h1>
-		</div> -->
-		<div class="container-text logo animated fadeInUp" style="border: none;">
-		    <picture>
-				<source media="(min-width: 800px)"
-			          sizes="80vw"
-			          srcset="images/my-logo-color.png">
-				<img src="images/my-logo-box-color.png" alt="my-logo"
-			       sizes="80vw"
-			       srcset="images/my-logo-box-color.png">
-			</picture>
-	    </div>
+	<div id="about-section" ng-include="'views/about.html'" ng-controller="AboutCtrl"></div>
+
+	<div id="map-section" class="map-container">
+		<div id="mapId" style="width: 100%; height: 600px;"></div>
+	</div>
+
+	<div id="chart-section" class="chart-container">
+		<div class="chart-header" layout="row" layout-align="center center">
+			<div>
+				<md-button ng-class="{'button-bottom':showRadial}" class="md-mini" ng-click="radialButton()">
+		            Radial {{showRadial}}
+		            <md-tooltip>Radial Chart</md-tooltip>
+		        </md-button>
+	        </div>
+			<div>
+				<md-button ng-class="{'button-bottom':showStack}" class="md-mini" ng-click="stackButton()">
+					Stack/Group
+		            <md-tooltip>Stacked/Grouped Bar Chart</md-tooltip>
+		        </md-button>
+	        </div>
+			<div>
+				<md-button ng-class="{'button-bottom':showStreamgraph}" class="md-mini" ng-click="streamButton()">
+					Streamgraph
+		            <md-tooltip>Streamgraph Chart</md-tooltip>
+		        </md-button>
+	        </div>
+		</div>
+		<div class="chart-body">
+			<div class="left" ng-if="showStack">    
+				<md-switch ng-model="grouped" ng-change="change(grouped)">
+				    Grouped
+				</md-switch>
+			</div>
+			<div class="left" ng-if="showStreamgraph">
+				<md-button class="md-primary" style="background: #03a9f4; color: white;" ng-click="streamTransition()">
+				    Update
+				</md-button>
+			</div>
+			<svg width="100%" height="650"></svg>
+		</div>
+	</div>
+
+	<div id="hoopfire-section" style="width: 100%; height: 600px;">
+		<iframe src="http://www.hoopfire.win" height="600px" width="100%"></iframe>
 	</div>
 </div>
 
 
 <!-- Footer -->
-<div ng-include="'views/footer.html'" ng-controller="FooterCtrl"></div>
+<footer>
+	<div class="footer" layout="column" layout-align="center center">
+		<div>
+			<span>--------------------------------------  Known Issues  --------------------------------------</span>
+		</div>
+		<div>
+			<span>Marker popups not working on map</span>
+		</div>
+		<div>
+			<span>Hoopfire data is outdated</span>
+		</div>
+		<div>
+			<span>iFrame solution for HoopFire section is poor</span>
+		</div>
+	</div>
+</footer>
 

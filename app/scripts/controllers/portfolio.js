@@ -89,7 +89,7 @@ angular.module('mywebsiteApp')
 		$scope.showPie = true;
 
 		d3.selectAll("g").remove();
-		$scope.svg = d3.select("svg");
+		$scope.svg = d3.select("pieSection");
     	var margin = {top: 20, right: 20, bottom: 30, left: 40},
     		width = +$scope.svg._groups[0][0].clientWidth - margin.left - margin.right,
    			height = +$scope.svg._groups[0][0].clientHeight - margin.top - margin.bottom,
@@ -419,73 +419,7 @@ angular.module('mywebsiteApp')
 	$scope.init = function() {
 
 		//Default Variables
-		$scope.openTools = false;
-		$scope.chartColor = "#4CAF52";
-		$scope.chartHoverColor = "#3B8386";
-		$scope.showColorTools = false;
-		$scope.showChartTools = false;
-		$scope.showViz = true;
-		$scope.showHoopfire = true;
-		$scope.showEducation = true;
-
-		//Chart Options
-		$scope.chartData = {
-			default : 'Radial'
-		};
-		$scope.chartOptions = [
-			{ label: 'Bar', value: 'Bar' },
-			{ label: 'Radial', value: 'Radial' },
-			{ label: 'Bubble', value: 'Bubble' },
-			{ label: 'Pie', value: 'Pie' }
-		];
-
-		$scope.data = [
-			{ topic: "HTML", skill: 10},
-			{ topic: "CSS", skill: 10},
-			{ topic: "Javascript", skill: 9 },
-			{ topic: "Java", skill: 8 },
-			{ topic: "Vaadin", skill: 8 },
-			{ topic: "AngularJS", skill: 9 },
-			{ topic: "Jquery", skill: 4 },
-			{ topic: "JSP", skill: 2 },
-			{ topic: "Hibernate", skill: 2 },
-			{ topic: "Spring", skill: 1 },
-			{ topic: "MySQL", skill: 3 },
-			{ topic: "Leaflet.js", skill: 5 },
-			{ topic: "D3.js", skill: 8 }
-		];
-
-		$scope.hData = {
-			"name": "Skills",
-			"children": [
-				{ "name": "HTML", "value": 10 },
-				{ "name": "CSS", "value": 10 },
-				{ "name": "Javascript", "value": 9 },
-				{ "name": "Java", "value": 8 },
-				{ "name": "Vaadin", "value": 8 },
-				{ "name": "AngularJS", "value": 9},
-				{ "name": "Jquery", "value": 4 },
-				{ "name": "JSP", "value": 2 },
-				{ "name": "Hibernate", "value": 2 },
-				{ "name": "Spring", "value": 1 },
-				{ "name": "MySQL", "value": 3 },
-				{ "name": "Leaflet.js", "value": 5 },
-				{ "name": "D3.js", "value": 8 }
-			]
-		},
-
-		$scope.buildRadialChart();
-
-	    angular.element($window).bind('resize', function(){
-	    	if($scope.showRadial == true){
-				$scope.buildRadialChart();
-			} else if($scope.showBar == true) {
-				$scope.buildBarChart();
-			} else if($scope.showBubble == true) {
-				$scope.buildBubbleChart();
-			}
-	    });
-
+		$scope.buildMap();
 	}
 
 

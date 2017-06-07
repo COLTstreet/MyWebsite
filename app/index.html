@@ -10,10 +10,10 @@
     <link rel="shortcut icon" href="images/favicon.ico">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="bower_components/md-color-picker/dist/mdColorPicker.min.css" />
-    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+    <link rel='stylesheet' href='bower_components/angular-material/angular-material.css' />
+    <link rel='stylesheet' href='bower_components/md-color-picker/dist/mdColorPicker.min.css' />
+    <link rel='stylesheet' href='bower_components/components-font-awesome/css/font-awesome.css' />
+    <link rel='stylesheet' href='bower_components/animate.css/animate.css' />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,7 +21,12 @@
     <link rel="stylesheet" href="styles/angular-material.css">
     <!-- endbuild -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet">
     <script src="https://use.fontawesome.com/cc17a56d38.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin=""/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css' rel='stylesheet' />
   </head>
   <body ng-app="mywebsiteApp">
     <!--[if lte IE 8]>
@@ -46,6 +51,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>

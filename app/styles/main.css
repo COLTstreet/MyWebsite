@@ -2,43 +2,54 @@ body {
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   color: #212121;
-  max-height: 1200px;
 }
 
-#divSize {
-  height: 1600px;
-}
-
-.full {
-  width: 100%;
+.page-body {
   height: 100%;
+  width: 100%;
 }
 
-.homeContainer {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background: #f5f5f5;
+.name-container {
+  height: 600px;
+  background: #ffffff;
 }
-.homeContainer:before {
-  content: ' ';
-  display: block;
+
+.map-container {
+  height: 600px;
+}
+
+.chart-container {
+  height: 800px;
+  background: white;
+}
+
+.chart-header {
+  margin-left: 30px;
+}
+
+.name-logo {
+  font-size: 25vh;
+  font-family: 'Arizonia', cursive;
+}
+
+.hoop-logo {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0.3;
-  background-image: url(/images/bball.jpg);
-  background-repeat: no-repeat;
-  background-position: 100% 70%;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
+  right: 50px;
+  top: 200px;
+}
+
+.left {
+  margin-left: 20px
+}
+
+.footer {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #9E9E9E;
+}
+
+.button-bottom {
+  border-bottom: 1px solid #000 !important;
 }
 
 .aboutContainer {
@@ -76,144 +87,53 @@ body {
   background-size: cover;
 }
 
-.pageContainer {
-  z-index: 10;
-}
-
-.png-icon {
-  margin: 45% auto auto;
-  padding: 0;
-  display: inline-block;
-  background-repeat: no-repeat no-repeat;
-  pointer-events: none;
-}
-
-.portContainer {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background: #f5f5f5;
-}
-
-.container-text {
-  text-align: center;
-  z-index: 2;
-  position: relative;
-  color: #4caf50;
-  /* border: 10px solid #212121; */
-  border-bottom: 10px solid #212121;
-}
-
-.viz-container {
-  height: 45%;
-  width: 100%;
-  margin: auto;
-}
-
-.tools {
-  height: 100%;
-  width: 100%;
-}
-
 .logo .img {
   display: block; 
   margin: 0 auto;
 }
 
-.footer {
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 5%;
-  margin-top: 1%;
-}
-
-.navFooter {
-  margin-bottom: 5%;
-}
-
-.icons {
-  margin: 1%;
-}
-
-.tool-icon {
-  width: 25px;
-  height: 25px;
-  background: #009688;
-  color: white;
-  float: left;
-  line-height: 25px;
-  text-align: center;
-  vertical-align: bottom;
-}
-
-.tool-menu {
-  height: 100%;
-  background: #BDBDBD;
-}
-
-.md-small  {
-  width: 30px !important;
-  height: 30px !important;
-  min-height: 30px !important;
-  /*background: #009688 !important;*/
-  color: white !important;
-  line-height: 30px !important;
-  text-align: center !important;
-  vertical-align: top !important;
-  padding: 0 0 !important;
-  margin: 0 !important;
-}
-
-md-icon {
-  color: #212121 !important;
-}
-
-/*Bar vix css*/
-/*.bar:hover {
-  fill: #009688;
-}*/
-
-.axis--x path {
-  display: none;
-}
-
-.section-text {
-  /*background:
-    radial-gradient(black 15%, transparent 16%) 0 0,
-    radial-gradient(black 15%, transparent 16%) 8px 8px,
-    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-  background-color:#282828;
-  background-size:16px 16px;*/
-  background: #303030;
-  border: 4px solid #aaa;
-  text-align: center;
-  color: #4caf50;
-  margin: 0;
-  border: none;
-  
-}
-
-.arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 25px solid whitesmoke;
-}
-
-.arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 55px solid transparent;
-  border-right: 55px solid transparent;
-  border-top: 35px solid #303030;
-}
-
-.collapse {
-  float: right;
-  margin-top: 20px;
-  padding-right: 2%;
+/*Radial CSS*/
+.node {
   cursor: pointer;
+}
+
+.node:hover {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node--leaf {
+  fill: white;
+}
+
+.label {
+  font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
+}
+
+/*Treemap CSS*/
+
+.tree-node {
+  box-sizing: border-box;
+  position: absolute;
+  overflow: hidden;
+}
+
+.tree-node-label {
+  padding: 4px;
+  line-height: 1em;
+  white-space: pre;
+}
+
+.tree-node-value {
+  color: rgba(0,0,0,0.8);
+  font-size: 9px;
+  margin-top: 1px;
 }
