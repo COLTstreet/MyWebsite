@@ -85,13 +85,13 @@ angular.module('mywebsiteApp')
 	}
 
 	$scope.buildRadial = function() {
-		d3.selectAll("g").remove();
+		d3.selectAll("#chart-svg").selectAll("g").remove();
 		d3.selectAll("path").remove();
 		$scope.showRadial = true;
 		$scope.showStack = false;
 		$scope.showStreamgraph = false;
 
-		var svg = d3.select("svg"),
+		var svg = d3.select("#chart-svg"),
 		    margin = 20,
 		    width = document.getElementById("chart-section").clientWidth,
 		    diameter = document.getElementById("chart-section").clientWidth / 3,
@@ -163,7 +163,7 @@ angular.module('mywebsiteApp')
 	}
 
 	$scope.buildStackedToGrouped = function() {
-		d3.selectAll("g").remove();
+		d3.selectAll("#chart-svg").selectAll("g").remove();
 		d3.selectAll("path").remove();
 		$scope.showRadial = false;
 		$scope.showStreamgraph = false;
@@ -182,7 +182,7 @@ angular.module('mywebsiteApp')
 		    yMax = d3.max(yz, function(y) { return d3.max(y); }),
 		    y1Max = d3.max(y01z, function(y) { return d3.max(y, function(d) { return d[1]; }); });
 
-		var svg = d3.select("svg"),
+		var svg = d3.select("#chart-svg"),
 		    margin = {top: 0, right: 10, bottom: 20, left: 10},
 		    width = document.getElementById("chart-section").clientWidth - margin.left - margin.right,
 		    height = +svg.attr("height") - margin.top - margin.bottom,
@@ -294,7 +294,7 @@ angular.module('mywebsiteApp')
 	}
 
 	$scope.buildStreamgraph = function() {
-		d3.selectAll("g").remove();
+		d3.selectAll("#chart-svg").selectAll("g").remove();
 		d3.selectAll("path").remove();
 		$scope.showRadial = false;
 		$scope.showStreamgraph = true;
@@ -309,7 +309,7 @@ angular.module('mywebsiteApp')
 		    layers1 = stack(d3.transpose(d3.range(n).map(function() { return bumps(m, k); }))),
 		    layers = layers0.concat(layers1);
 
-		var svg = d3.select("svg"),
+		var svg = d3.select("#chart-svg"),
 		    margin = {top: 0, right: 10, bottom: 20, left: 10},
 		    width = document.getElementById("chart-section").clientWidth,
 		    height = +svg.attr("height");
@@ -371,6 +371,46 @@ angular.module('mywebsiteApp')
 		}
 	}
 
+	$scope.buildBall = function() {
+		var width = 80;
+		var height = 200;
+
+		var svg = d3.select("#ball-svg")
+			.attr("width", width)
+			.attr("height", height);
+
+		var ball = svg.append("g")
+			.attr("transform","translate(" + (width * 0.5) + "," + (height * 0.5) + ")");
+
+		ball.append("circle")
+			.attr("r", "20px")
+			.attr("fill", "black");
+
+		ball.append("ellipse")
+			.attr("rx","20px")
+			.attr("ry","12px")
+			.attr("fill", "white");
+
+		ball.append("ellipse")
+			.attr("rx","20px")
+			.attr("ry","5px")
+			.attr("fill", "black");
+
+		function bounce() {
+			ball.transition()
+				.duration(1500)
+        		.ease(d3.easeQuadIn)
+				.attr("transform","translate(" + (width * 0.5) + "," + (height * 0.8) + "), scale(1.1,0.9)")
+				.transition()
+        		.ease(d3.easeQuadOut)
+				.duration(1500)
+				.attr("transform","translate(" + (width * 0.5) + "," + (height * 0.2) + "), scale(0.9,1.1)")
+				.on("end", bounce);
+		};
+
+		bounce();
+	}
+
 	$scope.radialButton = function() {
     	$scope.buildRadial();
     }
@@ -422,6 +462,8 @@ angular.module('mywebsiteApp')
 
 		
 		$scope.buildStackedToGrouped();
+		$scope.buildBall();
+
 		// $scope.buildRadial();
 	}
 

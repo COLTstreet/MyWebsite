@@ -34,8 +34,8 @@ body {
 
 .hoop-logo {
   position: absolute;
-  right: 50px;
-  top: 200px;
+  right: 200px;
+  top: -20px;
 }
 
 .left {
