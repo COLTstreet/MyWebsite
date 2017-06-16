@@ -88,6 +88,7 @@ angular.module('mywebsiteApp')
 		d3.selectAll("#chart-svg").selectAll("g").remove();
 		d3.selectAll("path").remove();
 		$scope.showRadial = true;
+		$scope.showSunburst = false;
 		$scope.showStack = false;
 		$scope.showStreamgraph = false;
 
@@ -166,6 +167,7 @@ angular.module('mywebsiteApp')
 		d3.selectAll("#chart-svg").selectAll("g").remove();
 		d3.selectAll("path").remove();
 		$scope.showRadial = false;
+		$scope.showSunburst = false;
 		$scope.showStreamgraph = false;
 		$scope.showStack = true;
 
@@ -297,6 +299,7 @@ angular.module('mywebsiteApp')
 		d3.selectAll("#chart-svg").selectAll("g").remove();
 		d3.selectAll("path").remove();
 		$scope.showRadial = false;
+		$scope.showSunburst = false;
 		$scope.showStreamgraph = true;
 		$scope.showStack = false;
 
@@ -371,6 +374,74 @@ angular.module('mywebsiteApp')
 		}
 	}
 
+	$scope.buildSunburst = function() {
+		d3.selectAll("#chart-svg").selectAll("g").remove();
+		d3.selectAll("path").remove();
+		$scope.showSunburst = true;
+		$scope.showRadial = false;
+		$scope.showStreamgraph = false;
+		$scope.showStack = false;
+
+		var svg = d3.select("#chart-svg");
+
+		var width = document.getElementById("chart-section").clientWidth,
+		    height = +svg.attr("height"),
+		    radius = (Math.min(width, height) / 2) - 10;
+
+		var formatNumber = d3.format(",d");
+
+		var x = d3.scaleLinear()
+		    .range([0, 2 * Math.PI]);
+
+		var y = d3.scaleSqrt()
+		    .range([0, radius]);
+
+		var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+		var partition = d3.partition();
+
+		var arc = d3.arc()
+		    .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x0))); })
+		    .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x1))); })
+		    .innerRadius(function(d) { return Math.max(0, y(d.y0)); })
+		    .outerRadius(function(d) { return Math.max(0, y(d.y1)); });
+
+
+		svg.attr("width", width)
+		    .attr("height", height);
+
+		var burst = svg.append("g")
+		    .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")")
+		    .attr("class", "sunburst");
+		  
+		  var root = d3.hierarchy($scope.flareData);
+		  root.sum(function(d) { return d.size; });
+
+		  burst.selectAll(".sunburst")
+		      .data(partition(root).descendants())
+		    .enter().append("path")
+		      .attr("d", arc)
+		      .style("fill", function(d) { return color((d.children ? d : d.parent).data.name); })
+		      .on("click", click)
+		    .append("title")
+		      .text(function(d) { return d.data.name + "\n" + formatNumber(d.value); });
+
+		function click(d) {
+		  burst.transition()
+		      .duration(750)
+		      .tween("scale", function() {
+		        var xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+		            yd = d3.interpolate(y.domain(), [d.y0, 1]),
+		            yr = d3.interpolate(y.range(), [d.y0 ? 20 : 0, radius]);
+		        return function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); };
+		      })
+		    .selectAll("path")
+		      .attrTween("d", function(d) { return function() { return arc(d); }; });
+		}
+
+		d3.select(self.frameElement).style("height", height + "px");
+	}
+
 	$scope.buildBall = function() {
 		var width = 80;
 		var height = 200;
@@ -423,12 +494,18 @@ angular.module('mywebsiteApp')
     	$scope.buildStreamgraph();
     }
 
+    $scope.sunburstButton = function() {
+    	$scope.buildSunburst();
+    }
+
+
 	$scope.init = function() {
 
 		//Default Variables
 		$scope.grouped = false;
 		$scope.showStack = true;
 		$scope.showRadial = false;
+		$scope.showSunburst = false;
 
 		//Resize chart on window resize
 		$(window).resize(function() {
@@ -452,6 +529,7 @@ angular.module('mywebsiteApp')
 		        console.log("Something went wrong");
 		    });
 
+		//Get radial/sunburst data
 		$http.get('https://api.myjson.com/bins/15lw9d')
 			.then(function(response) {
 				$scope.flareData = response.data;
@@ -463,8 +541,6 @@ angular.module('mywebsiteApp')
 		
 		$scope.buildStackedToGrouped();
 		$scope.buildBall();
-
-		// $scope.buildRadial();
 	}
 
 
