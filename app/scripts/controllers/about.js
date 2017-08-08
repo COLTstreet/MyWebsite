@@ -12,7 +12,7 @@ angular.module('mywebsiteApp')
 
 		$scope.data = [
 			{ label: "Name:", value: "Colt Street"},
-			{ label: "Age:", value: "26"},
+			{ label: "Age:", value: "27"},
 			{ label: "Phone:", value: "(304) 771-1419" },
 			{ label: "Email:", value: "colt.k.street@gmail.com" },
 		];

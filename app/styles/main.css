@@ -87,6 +87,31 @@ body {
   background-size: cover;
 }
 
+.whereweather {
+  background-image: url(/images/whereweather-logo-sm.png);
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
+.hoopfire {
+  background-image: url(/images/fire_logo.png);
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
+.web-info {
+  background: white;
+  color: black;
+  opacity: .6;
+  padding: 1px;
+}
+
+.plexrequest {
+  background-image: url(/images/plex_request.png);
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
 .logo .img {
   display: block; 
   margin: 0 auto;
@@ -136,4 +161,9 @@ body {
   color: rgba(0,0,0,0.8);
   font-size: 9px;
   margin-top: 1px;
+}
+
+.full {
+  height: 99%;
+  width: 99%;
 }

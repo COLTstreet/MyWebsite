@@ -57,7 +57,7 @@ angular.module('mywebsiteApp')
 		var map = L.map('mapId', {
 		    center: [38.895, -77.0363],
 		    zoom: 14,
-		    layers: [moonlight, $scope.nbaMarkerLayer]
+		    layers: [moonlight]
 		});
 
 		var baseMaps = {
@@ -75,7 +75,7 @@ angular.module('mywebsiteApp')
 		}		
 
 
-		L.control.layers(baseMaps, overlayMaps).addTo(map);
+		L.control.layers(baseMaps).addTo(map);
 
 
 		var southWest = [L.latLngBounds($scope.locationArray).getSouthWest().lat, L.latLngBounds($scope.locationArray).getSouthWest().lng];
@@ -506,6 +506,9 @@ angular.module('mywebsiteApp')
 		$scope.showStack = true;
 		$scope.showRadial = false;
 		$scope.showSunburst = false;
+		$scope.hoopfireInfo = false;
+		$scope.whereweatherInfo = false;
+		$scope.plexInfo = false;
 
 		//Resize chart on window resize
 		$(window).resize(function() {
@@ -541,6 +544,8 @@ angular.module('mywebsiteApp')
 		
 		$scope.buildStackedToGrouped();
 		$scope.buildBall();
+
+		
 	}
 
 

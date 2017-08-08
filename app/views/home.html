@@ -14,6 +14,93 @@
 
 	<div id="about-section" ng-include="'views/about.html'" ng-controller="AboutCtrl"></div>
 
+	<div id="websites-section" style="width: 100%; height: 600px;">
+		<div layout="row" layout-align="stretch" style="height: 100%;">
+			<div flex layout="column" layout-align="center center">
+				<md-card class="hoopfire full animated slideInLeft">
+					<md-card-content style="padding-top: 0;">
+						<div  layout="row" layout-align="end start">
+							<div>
+								<p>HoopFire</p>
+							</div>
+							<div>
+								<md-button aria-label="About" class="md-icon-button" ng-click="hoopfireInfo = true">
+									<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+								</md-button>
+							</div>
+							<div>
+								<md-button aria-label="Link" class="md-icon-button" ng-href="http://hoopfire.win" target="_blank">
+									<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+								</md-button>
+							</div>
+						</div>
+						<div ng-if="hoopfireInfo" class="web-info animated slideInLeft">
+							<p>HoopFire is a sports prediction web application. Two friends and I came up with the idea a few years back and it has been a pet project ever since.
+								It was originally built using Vaadin and was rewritten in 2016. The front end is now built using AngularJS with Angular Material design principles.  
+								The data is persisted using Hibernate against a MySQL database with application dependencies being managed by Spring. The application build is handled by Maven and 
+								we're using Heroku to host the application.
+							</p>
+						</div>
+					</md-card-content>
+				</md-card>
+			</div>
+			<div flex layout="column" layout-align="center center">
+				<md-card class="whereweather full animated slideInLeft">
+					<md-card-content style="padding-top: 0;">
+						<div  layout="row" layout-align="end start">
+							<div>
+								<p>WhereWeather</p>
+							</div>
+							<div>
+								<md-button aria-label="About" class="md-icon-button" ng-click="whereweatherInfo = true">
+									<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+								</md-button>
+							</div>
+							<div>
+								<md-button aria-label="Link" class="md-icon-button" ng-href="https://coltstreet.github.io/whereweather/#!/" target="_blank">
+									<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+								</md-button>
+							</div>
+						</div>
+						<div ng-if="whereweatherInfo" class="web-info animated slideInLeft">
+							<p>WhereWeather is a very simple and straightforward weather forecast website. It asks for the users location, but can also get the weather of any user inputted location.
+								The forecast goes forward a few days and displays the information based on the forecast, as projected by the Dark Sky API. The site was built using Yeoman to set up the scaffolding, which includes NPM, Bower, and Grunt.
+								The site is implemented with AngularJS and Angular Material Design. All icons and logos I created myself with Adobe Illustrator.
+							</p>
+						</div>
+					</md-card-content>
+				</md-card>
+			</div>
+			<div flex layout="column" layout-align="center center">
+				<md-card class="plexrequest full animated slideInLeft">
+					<md-card-content style="padding-top: 0;">
+						<div  layout="row" layout-align="end start">
+							<div>
+								<p>Plex Request</p>
+							</div>
+							<div>
+								<md-button aria-label="About" class="md-icon-button" ng-click="plexInfo = true">
+									<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+								</md-button>
+							</div>
+							<div>
+								<md-button aria-label="Link" class="md-icon-button" ng-href="https://coltstreet.github.io/plexrequest/#!/" target="_blank">
+									<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+								</md-button>
+							</div>
+						</div>
+						<div ng-if="plexInfo" class="web-info animated slideInLeft">
+							<p>Plex Request started as a joke between my friends and I. We wanted a way to browse movies and Tv shows we may want to watch later. It simply sends a user selected list to a friend of mine 
+								who gracioulsy volunteered to maintain the full list. All information is a product of the JSON returned from using the The MovieDB API. The site was built using Yeoman to set up the scaffolding, which includes NPM, Bower, and Grunt.
+								The site is implemented with AngularJS and Angular Material Design.
+							</p>
+						</div>
+					</md-card-content>
+				</md-card>
+			</div>
+		</div>
+	</div>
+
 	<div id="chart-section" class="chart-container">
 		<div class="chart-header" layout="row" layout-align="center center">
 			<div>
@@ -56,10 +143,9 @@
 		</div>
 	</div>
 
-	<div id="hoopfire-section" style="width: 100%; height: 600px;">
+	<!-- <div id="hoopfire-section" style="width: 100%; height: 600px;">
 		<iframe src="http://www.hoopfire.win" height="600px" width="100%"></iframe>
-	</div>
-
+	</div> --> 
 
 	<div id="map-section" class="map-container">
 		<div id="mapId" style="width: 100%; height: 600px;"></div>
@@ -69,18 +155,36 @@
 
 <!-- Footer -->
 <footer>
-	<div class="footer" layout="column" layout-align="center center">
+	<div class="footer" layout="row" layout-align="center center">
 		<div>
-			<span>--------------------------------------  Known Issues  --------------------------------------</span>
+			<md-button class="md-fab md-mini md-primary" ng-href="https://www.linkedin.com/in/colt-street-b1b34946" target="_blank" aria-label="LinkedIn">
+				<i class="fa fa-linkedin-square fa-lg" aria-hidden="true" aria-label="linkedin"></i>
+				<md-tooltip>LinkedIn</md-tooltip>
+			</md-button>
 		</div>
 		<div>
-			<span>Marker popups not working on map</span>
+			<md-button class="md-fab md-mini md-primary" ng-href="https://github.com/COLTstreet" target="_blank" aria-label="GitHub">
+				<i class="fa fa-git-square fa-lg" aria-hidden="true" aria-label="GitHub"></i>
+				<md-tooltip>GitHub</md-tooltip>
+			</md-button>
 		</div>
 		<div>
-			<span>Hoopfire data is outdated</span>
+			<md-button class="md-fab md-mini md-primary" ng-href="https://bl.ocks.org/COLTstreet" target="_blank" aria-label="bl.ocks">
+				<img class="png-icon" src="/images/d-three-sm.png"/>
+				<md-tooltip>bl.ocks</md-tooltip>
+			</md-button>
 		</div>
 		<div>
-			<span>iFrame solution for HoopFire section is poor</span>
+			<md-button class="md-fab md-mini md-primary" ng-href="mailto:colt.k.street@gmail.com?Subject=Hello!" target="_blank" aria-label="Gmail">
+				<i class="fa fa-envelope" aria-hidden="true" aria-label="Gmail"></i>
+				<md-tooltip>Gmail</md-tooltip>
+			</md-button>
+		</div>
+		<div>
+			<md-button class="md-fab md-mini md-primary" ng-href="https://plus.google.com/u/0/116028321943063867870" target="_blank" aria-label="Google+">
+				<i class="fa fa-google-plus" aria-hidden="true" aria-label="Google"></i>
+				<md-tooltip>Google+</md-tooltip>
+			</md-button>
 		</div>
 	</div>
 </footer>
