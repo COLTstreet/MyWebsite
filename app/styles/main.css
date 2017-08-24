@@ -11,7 +11,7 @@ body {
 
 .name-container {
   height: 600px;
-  background: #ffffff;
+  background: #212121;
 }
 
 .map-container {
@@ -28,8 +28,9 @@ body {
 }
 
 .name-logo {
-  font-size: 25vh;
-  font-family: 'Arizonia', cursive;
+  font-size: 20vh;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .hoop-logo {
@@ -61,8 +62,8 @@ body {
 }
 
 .about-card {
-  background: #f5f5f5;
-  color: #212121;
+  background: #212121;
+  color: #fff;
   z-index: 2;
   opacity: .8;
 }
@@ -91,12 +92,14 @@ body {
   background-image: url(/images/whereweather-logo-sm.png);
   background-repeat: no-repeat;
   background-position: 100% 50%;
+  background-size: contain;
 }
 
 .hoopfire {
   background-image: url(/images/fire_logo.png);
   background-repeat: no-repeat;
   background-position: 100% 50%;
+  background-size: contain;
 }
 
 .web-info {
@@ -110,6 +113,7 @@ body {
   background-image: url(/images/plex_request.png);
   background-repeat: no-repeat;
   background-position: 100% 50%;
+  background-size: contain;
 }
 
 .logo .img {
