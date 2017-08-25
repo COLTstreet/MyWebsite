@@ -11,7 +11,10 @@ body {
 
 .name-container {
   height: 600px;
-  background: #212121;
+  background-image: url(/images/about.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 100% 60%;
 }
 
 .map-container {
@@ -29,7 +32,7 @@ body {
 
 .name-logo {
   font-size: 20vh;
-  color: white;
+  color: #009688;
   font-family: 'Permanent Marker', cursive;
 }
 
@@ -78,9 +81,9 @@ body {
   height: 100%;
   z-index: 0;
   opacity: 0.3;
-  background-image: url(/images/about.jpg);
+  background-image: url(/images/together.jpg);
   background-repeat: no-repeat;
-  background-position: 100% 70%;
+  background-position: 100% 30%;
   -ms-background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;
