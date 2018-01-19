@@ -43,7 +43,7 @@
 					</md-card-content>
 				</md-card>
 			</div>
-			<div flex layout="column" layout-align="center center">
+			<!-- <div flex layout="column" layout-align="center center">
 				<md-card class="whereweather full animated slideInLeft">
 					<md-card-content style="padding-top: 0;">
 						<div  layout="row" layout-align="end start">
@@ -65,6 +65,31 @@
 							<p>WhereWeather is a very simple and straightforward weather forecast website. It asks for the users location, but can also get the weather of any user inputted location.
 								The forecast goes forward a few days and displays the information based on the forecast, as projected by the Dark Sky API. The site was built using Yeoman to set up the scaffolding, which includes NPM, Bower, and Grunt.
 								The site is implemented with AngularJS and Angular Material Design. All icons and logos I created myself with Adobe Illustrator.
+							</p>
+						</div>
+					</md-card-content>
+				</md-card>
+			</div> -->
+			<div flex layout="column" layout-align="center center">
+				<md-card class="comic-info full animated slideInLeft">
+					<md-card-content class="comic-card-header">
+						<div  layout="row" layout-align="end start">
+							<div>
+								<p>Comic Info Search</p>
+							</div>
+							<div>
+								<md-button aria-label="About" class="md-icon-button" ng-click="whereweatherInfo = true">
+									<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+								</md-button>
+							</div>
+							<div>
+								<md-button aria-label="Link" class="md-icon-button" ng-href="https://comic-info.netlify.com/#!/" target="_blank">
+									<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+								</md-button>
+							</div>
+						</div>
+						<div ng-if="whereweatherInfo" class="web-info animated slideInLeft">
+							<p>I came across the Comic Vine API and thought it was something very interesting. I decided I wanted to try and create some kind of website using the API. I settled on a search website. The user can search for any character they wish and the will return a list of results. From there, the user can choose a character and the site will display a photo and all the information about that character. I chose a 2 sided design to showcase the character images while still displaying all the information. The overall layout is designed to feel like the user is looking at a comic book page, with the gaps and border mimicing that of the comic style. The background colors are dynamic and change with the user selected character by taking advantage of VibrantJS. The site is built using NPM, Bower, Grunt, and AngularJS. I use a Github repository thats hooked up to Netlify to allow auto-publishing for any change I commit. Click the link to check it out!
 							</p>
 						</div>
 					</md-card-content>

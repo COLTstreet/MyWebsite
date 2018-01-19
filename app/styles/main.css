@@ -98,6 +98,20 @@ body {
   background-size: contain;
 }
 
+.comic-info {
+  background-image: url(/images/comics3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.comic-card-header {
+  padding-top: 0;
+  background: rgba(255, 255, 255, .6);
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .hoopfire {
   background-image: url(/images/fire_logo.png);
   background-repeat: no-repeat;
