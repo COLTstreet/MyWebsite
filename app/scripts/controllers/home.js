@@ -442,46 +442,6 @@ angular.module('mywebsiteApp')
 		d3.select(self.frameElement).style("height", height + "px");
 	}
 
-	$scope.buildBall = function() {
-		var width = 80;
-		var height = 200;
-
-		var svg = d3.select("#ball-svg")
-			.attr("width", width)
-			.attr("height", height);
-
-		var ball = svg.append("g")
-			.attr("transform","translate(" + (width * 0.5) + "," + (height * 0.5) + ")");
-
-		ball.append("circle")
-			.attr("r", "20px")
-			.attr("fill", "black");
-
-		ball.append("ellipse")
-			.attr("rx","20px")
-			.attr("ry","12px")
-			.attr("fill", "white");
-
-		ball.append("ellipse")
-			.attr("rx","20px")
-			.attr("ry","5px")
-			.attr("fill", "black");
-
-		function bounce() {
-			ball.transition()
-				.duration(1500)
-        		.ease(d3.easeQuadIn)
-				.attr("transform","translate(" + (width * 0.5) + "," + (height * 0.8) + "), scale(1.1,0.9)")
-				.transition()
-        		.ease(d3.easeQuadOut)
-				.duration(1500)
-				.attr("transform","translate(" + (width * 0.5) + "," + (height * 0.2) + "), scale(0.9,1.1)")
-				.on("end", bounce);
-		};
-
-		bounce();
-	}
-
 	$scope.radialButton = function() {
     	$scope.buildRadial();
     }
@@ -543,7 +503,6 @@ angular.module('mywebsiteApp')
 
 		
 		$scope.buildStackedToGrouped();
-		$scope.buildBall();
 
 		
 	}

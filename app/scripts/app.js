@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngMaterial',
-    'mdColorPicker'
+    'mdColorPicker',
+    'slick'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({

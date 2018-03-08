@@ -13,118 +13,142 @@
 
 	<div id="about-section" ng-include="'views/about.html'" ng-controller="AboutCtrl"></div>
 
-	<div id="websites-section" style="width: 100%; height: 600px;">
-		<div layout="row" layout-align="stretch" style="height: 100%;">
-			<div flex layout="column" layout-align="center center">
-				<md-card class="hoopfire full animated slideInLeft">
-					<md-card-content style="padding-top: 0;">
-						<div  layout="row" layout-align="end start">
-							<div>
-								<p>HoopFire</p>
+	<section id="websites-section" ng-init="index=2" style="width: 100%; height: 600px;">
+		<div class="content">
+			<slick dots="true" class="slider single-item" current-index="index" responsive="breakpoints" slides-to-show=3 slides-to-scroll=1>
+				<div flex layout="column" layout-align="center center" class="card-ele">
+					<md-card class="hoopfire full animated slideInLeft">
+						<md-card-content class="comic-card-header">
+							<div  layout="row" layout-align="end start">
+								<div>
+									<p>HoopFire</p>
+								</div>
+								<div>
+									<md-button aria-label="About" class="md-icon-button" ng-click="hoopfireInfo = !hoopfireInfo">
+										<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+									</md-button>
+								</div>
+								<div>
+									<md-button aria-label="Link" class="md-icon-button" ng-href="https://hoopfire.netlify.com/#!/" target="_blank">
+										<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+									</md-button>
+								</div>
 							</div>
-							<div>
-								<md-button aria-label="About" class="md-icon-button" ng-click="hoopfireInfo = true">
-									<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
-								</md-button>
+							<div ng-if="hoopfireInfo" class="web-info animated slideInLeft">
+								<p>HoopFire is a sports prediction web application. Two friends and I came up with the idea a few years back and it has been a pet project ever since.
+									It was originally built using Vaadin and was rewritten in 2016. The front end is now built using AngularJS with Angular Material design principles.  
+									The data is persisted using Hibernate against a MySQL database with application dependencies being managed by Spring. The application build is handled by Maven and 
+									we're using Heroku to host the application.
+								</p>
 							</div>
-							<div>
-								<md-button aria-label="Link" class="md-icon-button" ng-href="http://hoopfire.win" target="_blank">
-									<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
-								</md-button>
+						</md-card-content>
+					</md-card>
+				</div>
+				<div flex layout="column" layout-align="center center" class="card-ele">
+					<md-card class="comic-info full animated slideInLeft">
+						<md-card-content class="comic-card-header">
+							<div  layout="row" layout-align="end start">
+								<div>
+									<p>Comic Info Search</p>
+								</div>
+								<div>
+									<md-button aria-label="About" class="md-icon-button" ng-click="comicInfo = !comicInfo">
+										<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+									</md-button>
+								</div>
+								<div>
+									<md-button aria-label="Link" class="md-icon-button" ng-href="https://comic-info.netlify.com/#!/" target="_blank">
+										<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+									</md-button>
+								</div>
 							</div>
-						</div>
-						<div ng-if="hoopfireInfo" class="web-info animated slideInLeft">
-							<p>HoopFire is a sports prediction web application. Two friends and I came up with the idea a few years back and it has been a pet project ever since.
-								It was originally built using Vaadin and was rewritten in 2016. The front end is now built using AngularJS with Angular Material design principles.  
-								The data is persisted using Hibernate against a MySQL database with application dependencies being managed by Spring. The application build is handled by Maven and 
-								we're using Heroku to host the application.
-							</p>
-						</div>
-					</md-card-content>
-				</md-card>
-			</div>
-			<!-- <div flex layout="column" layout-align="center center">
-				<md-card class="whereweather full animated slideInLeft">
-					<md-card-content style="padding-top: 0;">
-						<div  layout="row" layout-align="end start">
-							<div>
-								<p>WhereWeather</p>
+							<div ng-if="comicInfo" class="web-info animated slideInLeft">
+								<p>I came across the Comic Vine API and thought it was something very interesting. I decided I wanted to try and create some kind of website using the API. I settled on a search website. The user can search for any character they wish and the will return a list of results. From there, the user can choose a character and the site will display a photo and all the information about that character. I chose a 2 sided design to showcase the character images while still displaying all the information. The overall layout is designed to feel like the user is looking at a comic book page, with the gaps and border mimicing that of the comic style. The background colors are dynamic and change with the user selected character by taking advantage of VibrantJS. The site is built using NPM, Bower, Grunt, and AngularJS. I use a Github repository thats hooked up to Netlify to allow auto-publishing for any change I commit. Click the link to check it out!
+								</p>
 							</div>
-							<div>
-								<md-button aria-label="About" class="md-icon-button" ng-click="whereweatherInfo = true">
-									<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
-								</md-button>
+						</md-card-content>
+					</md-card>
+				</div>
+				<div flex layout="column" layout-align="center center" class="card-ele">
+					<md-card class="plexrequest full animated slideInLeft">
+						<md-card-content class="comic-card-header">
+							<div  layout="row" layout-align="end start">
+								<div>
+									<p>Plex Request</p>
+								</div>
+								<div>
+									<md-button aria-label="About" class="md-icon-button" ng-click="plexInfo = !plexInfo">
+										<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+									</md-button>
+								</div>
+								<div>
+									<md-button aria-label="Link" class="md-icon-button" ng-href="https://plex-request.netlify.com" target="_blank">
+										<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+									</md-button>
+								</div>
 							</div>
-							<div>
-								<md-button aria-label="Link" class="md-icon-button" ng-href="https://coltstreet.github.io/whereweather/#!/" target="_blank">
-									<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
-								</md-button>
+							<div ng-if="plexInfo" class="web-info animated slideInLeft">
+								<p>Plex Request started as a joke between my friends and I. We wanted a way to browse movies and Tv shows we may want to watch later. It simply sends a user selected list to a friend of mine 
+									who gracioulsy volunteered to maintain the full list. All information is a product of the JSON returned from using the The MovieDB API. The original site was built using Yeoman to set up the scaffolding, which includes NPM, Bower, and Grunt.
+									The site is implemented with AngularJS and Angular Material Design. That site can be found <a href="https://coltstreet.github.io/plexrequest/#!/" target="_blank">here.</a> I've since redone the site. It's still uses AngularJS and Angular Material but it now manged by Gulp and is a more visually appealing.
+								</p>
 							</div>
-						</div>
-						<div ng-if="whereweatherInfo" class="web-info animated slideInLeft">
-							<p>WhereWeather is a very simple and straightforward weather forecast website. It asks for the users location, but can also get the weather of any user inputted location.
-								The forecast goes forward a few days and displays the information based on the forecast, as projected by the Dark Sky API. The site was built using Yeoman to set up the scaffolding, which includes NPM, Bower, and Grunt.
-								The site is implemented with AngularJS and Angular Material Design. All icons and logos I created myself with Adobe Illustrator.
-							</p>
-						</div>
-					</md-card-content>
-				</md-card>
-			</div> -->
-			<div flex layout="column" layout-align="center center">
-				<md-card class="comic-info full animated slideInLeft">
-					<md-card-content class="comic-card-header">
-						<div  layout="row" layout-align="end start">
-							<div>
-								<p>Comic Info Search</p>
+						</md-card-content>
+					</md-card>
+				</div>
+				<div flex layout="column" layout-align="center center" class="card-ele">
+					<md-card class="craigslist full animated slideInLeft">
+						<md-card-content class="comic-card-header">
+							<div  layout="row" layout-align="end start">
+								<div>
+									<p>Craigslist Redesign</p>
+								</div>
+								<div>
+									<md-button aria-label="About" class="md-icon-button" ng-click="craigslistInfo = !craigslistInfo">
+										<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+									</md-button>
+								</div>
+								<div>
+									<md-button aria-label="Link" class="md-icon-button" ng-href="https://codepen.io/COLTstreet/full/zRbqaQ" target="_blank">
+										<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+									</md-button>
+								</div>
 							</div>
-							<div>
-								<md-button aria-label="About" class="md-icon-button" ng-click="whereweatherInfo = true">
-									<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
-								</md-button>
+							<div ng-if="craigslistInfo" class="web-info animated slideInLeft">
+								<p>This is a simple redesign of Craigslist. It was done for a challenge on <a href="https://www.uplabs.com/users/coltstreet/showcases">Uplabs.com.</a>
+								</p>
 							</div>
-							<div>
-								<md-button aria-label="Link" class="md-icon-button" ng-href="https://comic-info.netlify.com/#!/" target="_blank">
-									<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
-								</md-button>
+						</md-card-content>
+					</md-card>
+				</div>
+				<div flex layout="column" layout-align="center center" class="card-ele">
+					<md-card class="weather full animated slideInLeft">
+						<md-card-content class="comic-card-header">
+							<div  layout="row" layout-align="end start">
+								<div>
+									<p>Weather Now</p>
+								</div>
+								<div>
+									<md-button aria-label="About" class="md-icon-button" ng-click="weatherInfo = !weatherInfo">
+										<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
+									</md-button>
+								</div>
+								<div>
+									<md-button aria-label="Link" class="md-icon-button" ng-href="https://codepen.io/COLTstreet/full/zRbqaQ" target="_blank">
+										<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
+									</md-button>
+								</div>
 							</div>
-						</div>
-						<div ng-if="whereweatherInfo" class="web-info animated slideInLeft">
-							<p>I came across the Comic Vine API and thought it was something very interesting. I decided I wanted to try and create some kind of website using the API. I settled on a search website. The user can search for any character they wish and the will return a list of results. From there, the user can choose a character and the site will display a photo and all the information about that character. I chose a 2 sided design to showcase the character images while still displaying all the information. The overall layout is designed to feel like the user is looking at a comic book page, with the gaps and border mimicing that of the comic style. The background colors are dynamic and change with the user selected character by taking advantage of VibrantJS. The site is built using NPM, Bower, Grunt, and AngularJS. I use a Github repository thats hooked up to Netlify to allow auto-publishing for any change I commit. Click the link to check it out!
-							</p>
-						</div>
-					</md-card-content>
-				</md-card>
-			</div>
-			<div flex layout="column" layout-align="center center">
-				<md-card class="plexrequest full animated slideInLeft">
-					<md-card-content style="padding-top: 0;">
-						<div  layout="row" layout-align="end start">
-							<div>
-								<p>Plex Request</p>
+							<div ng-if="weatherInfo" class="web-info animated slideInLeft">
+								<p>Very minimalist weather forecasting website that obtains the current forecast for the given zip code. It was done for a challenge on <a href="https://www.uplabs.com/users/coltstreet/showcases">Uplabs.com.</a>
+								</p>
 							</div>
-							<div>
-								<md-button aria-label="About" class="md-icon-button" ng-click="plexInfo = true">
-									<i class="fa fa-info-circle fa-lg" aria-hidden="true" aria-label="About"></i>
-								</md-button>
-							</div>
-							<div>
-								<md-button aria-label="Link" class="md-icon-button" ng-href="https://plex-request.netlify.com" target="_blank">
-									<i class="fa fa-share-square-o fa-lg" aria-hidden="true" aria-label="GoTo"></i>
-								</md-button>
-							</div>
-						</div>
-						<div ng-if="plexInfo" class="web-info animated slideInLeft">
-							<p>Plex Request started as a joke between my friends and I. We wanted a way to browse movies and Tv shows we may want to watch later. It simply sends a user selected list to a friend of mine 
-								who gracioulsy volunteered to maintain the full list. All information is a product of the JSON returned from using the The MovieDB API. The original site was built using Yeoman to set up the scaffolding, which includes NPM, Bower, and Grunt.
-								The site is implemented with AngularJS and Angular Material Design. That site can be found <a href="https://coltstreet.github.io/plexrequest/#!/" target="_blank">here.</a> I've since redone the site. It's still uses AngularJS and Angular Material but it now manged by Gulp and is a more visually appealing.
-							</p>
-						</div>
-					</md-card-content>
-				</md-card>
-			</div>
+						</md-card-content>
+					</md-card>
+				</div>
+			</slick>
 		</div>
-	</div>
-
+	</section>
 	<div id="chart-section" class="chart-container">
 		<div class="chart-header" layout="row" layout-align="center center">
 			<div>

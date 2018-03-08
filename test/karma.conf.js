@@ -34,6 +34,9 @@ module.exports = function(config) {
       'bower_components/d3/d3.js',
       'bower_components/tinycolor/tinycolor.js',
       'bower_components/md-color-picker/dist/mdColorPicker.min.js',
+      'bower_components/angular-ui-carousel/dist/ui-carousel.js',
+      'bower_components/slick-carousel/slick/slick.js',
+      'bower_components/angular-slick/dist/slick.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

@@ -108,15 +108,29 @@ body {
   padding-top: 0;
   background: rgba(255, 255, 255, .6);
   color: black;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 .hoopfire {
-  background-image: url(/images/fire_logo.png);
+  background-image: url(/images/hoopfire.png);
   background-repeat: no-repeat;
   background-position: 100% 50%;
   background-size: contain;
+}
+
+.craigslist {
+  background-image: url(/images/craigslist.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+.weather {
+  background-image: url(/images/weather.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
 }
 
 .web-info {
@@ -127,7 +141,7 @@ body {
 }
 
 .plexrequest {
-  background-image: url(/images/plex_request.png);
+  background-image: url(/images/plex.png);
   background-repeat: no-repeat;
   background-position: 100% 50%;
   background-size: contain;
@@ -187,4 +201,26 @@ body {
 .full {
   height: 99%;
   width: 99%;
+}
+
+.card-ele {
+  height: 590px;
+}
+
+.content{
+  margin: auto;
+  padding: 0 5%;
+}
+.content:after,.buttons::after{
+  clear: both;
+  content: "";
+  display: table;
+}
+
+@media (max-width: 768px) {
+  .content{
+    margin: auto;
+    padding: 20px 40px;
+    width: auto;
+  }
 }
